@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "web3": "^1.7.1"
+  },
+  "scripts": {
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+ 
+}
