@@ -2,29 +2,33 @@
 <html>
 <head>
 
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.1/web3.min.js"
-    integrity="sha512-5erpERW8MxcHDF7Xea9eBQPiRtxbse70pFcaHJuOhdEBQeAxGQjUwgJbuBDWve+xP/u5IoJbKjyJk50qCnMD7A=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-
-
-
-
 <title>Trackers</title>
 </head>
 <body>
 
+<p id="account"></p>
+
 <h3> Enter Product Name Bellow :</h3>
 
 <form>
-  <input type="text" id="p_name" name="p_name" value="Spinach"><br>
+  <input type="text" id="p_name_field" name="p_name" value="Spinach"><br>
+  <br>
+  <input type="button" value="Add Product" onClick = "App.addProduct();">
 </form> 
 
+<br>
 
+<ol id = "p_list">
+  <!-- <label> -->
+    <!-- <span class="content">Task content goes here...</span> -->
+  <!-- </label> -->
+  </ol>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- // for using truffle contract -->
+<script src = "truffle-contract.js"></script>
+
+<script src = "app.js"> </script>
 
 </body>
 </html>
-
-
