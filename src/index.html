@@ -2,33 +2,40 @@
 <html>
 <head>
 
-<title>Trackers</title>
+<title>AgroBlock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
 </head>
 <body>
 
 <p id="account"></p>
 
-<h3> Enter Product Name Bellow :</h3>
 
-<form>
-  <input type="text" id="p_name_field" name="p_name" value="Spinach"><br>
-  <br>
-  <input type="button" value="Add Product" onClick = "App.addProduct();">
-</form> 
+<h4 style="text-align: center;"> Log in as... </h4>
 
-<br>
+<ul class="w3-ul w3-hoverable" style="text-align: center;">
+  <!-- <li id = "admin">Admin</li> -->
+  <li id = "farmer">Farmer</li>
+  <li id = "menufacturer">Manufacturer</li>
+  <li id = "retailer">Retailer</li>
+</ul>
 
 <ol id = "p_list">
   <!-- <label> -->
     <!-- <span class="content">Task content goes here...</span> -->
   <!-- </label> -->
-  </ol>
+</ol>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <!-- // for using truffle contract -->
 <script src = "truffle-contract.js"></script>
 
 <script src = "app.js"> </script>
+
+
+
 
 </body>
 </html>

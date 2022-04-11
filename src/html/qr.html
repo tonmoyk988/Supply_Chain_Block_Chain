@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <div id = "new_code"></div>
+
+    <div id = "p_desc">
+        <h3 id="p_name"></h3>
+        <p id="f_p"></p>
+        <p id ="men">Menufectured On: 12</p>
+        <p id = "expr">Expired On : 35</p>
+        <p id = "mrp">MRP: 50</p>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+        $(() => {
+            $(window).load(() => {
+                  const value = localStorage.getItem("product_details");
+                  const vale = JSON.parse(value);
+                //   for(var i = 0 ; i<val.length ; i++){
+                    // console.log(val[3]);
+                //   }
+                  document.getElementById("p_name").innerHTML=vale[1];
+                  document.getElementById("f_p").innerHTML="Farmer Payment: "+vale[2];
+                  document.getElementById("men").innerHTML="Menufectured On: "+vale[4];
+                  document.getElementById("expr").innerHTML="Expired On: "+vale[5];
+                  document.getElementById("mrp").innerHTML="MRP: "+vale[6];
+                // $('#p_name').val(vale[3]);
+                // var allv = document.getElementById("p_desc");
+                // console.log(allv);
+                var allv = "Name: "+vale[1]+"\n"+ "Farmer Payment: "+vale[2] + 
+                "\nMenufectured On: "+ vale[4] + "\nExpired On: "+vale[5]+
+                "\nMRP: "+vale[6];
+                new QRCode(document.getElementById("new_code"),allv);
+            })
+        })
+        
+    </script>
+
+</html>

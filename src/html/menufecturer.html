@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <style>
+            
+            #container {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+            
+            .form_container{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgb(230, 230, 230);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                pointer-events: none ;
+            }
+            .form_container.show{
+                pointer-events: auto;
+                opacity: 1;
+            }
+
+            .modal {  
+                margin: 30px,50px;
+            }
+
+            .topright {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+            }
+
+            
+
+        </style>
+    </head>
+
+
+    <div id="container"  >
+       <!-- <h2 class="info">Product name goes here</h2>
+       <p class="info">Product price</p>
+       <button>BUY</button>     -->
+    </div>
+
+
+    <div id ="form_container_id" class = "form_container">
+        
+        <div class="modal">
+            <button class="topright" onclick="close_pop_up()">Close</button>
+            <script>
+                function close_pop_up(){
+                    document.getElementById("form_container_id").classList.remove('show');
+                }
+            </script>
+            <br> 
+            <br>       
+            <form id = "men_form" onsubmit="return false">
+                <!-- <button style="position: absolute ; top: 8px; right: 16px;">Close</button>> -->
+                <label for="fname">Menufectured Date:</label><br>
+                <input type="date" id="menufectured_date" name="fname" ><br>
+                <label for="lname">Expired Date:</label><br>
+                <input type="date" id="expired_date" name="lname" ><br><br>    
+                
+                <label for="daam">MRP:</label><br>
+                <input type="number" id="mrp" name="daam" ><br><br>
+                <button id = "shift_product" onclick="shift_button()">Shift Product</button>
+            </form> 
+            
+        </div>
+    </div>
+
+    <!-- <button onclick="myFunction()">Try it</button> -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <script src = "../app.js"></script> -->
+    <script src="../truffle-contract.js"></script>
+    
+    <script src="menufecturer.js"></script>
+
+</html>

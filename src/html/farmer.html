@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Welcome to the farm </title>
+    <style>
+
+        .center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid #070707;
+        }
+        .topcorner{
+            position:absolute;
+            top:0;
+            right:10%;
+        }
+        .next_to {
+            display: inline-block;       
+        }
+
+
+    </style>
+</head>
+
+
+    <body>
+        
+        <div >
+        
+        <div class="topcorner" >
+            <h4 class = "next_to">Balance :</h4>
+            <h4 class = "next_to">100</h4>
+        </div>
+
+        <form class="center">
+            <label for="fname">Enter Product Name:</label><br>
+            <input type="text" id="farmer_p_name" name="fname" ><br>
+            <label for="lname">Price:</label><br>
+            <input type="number" id="farmer_price" name="lname" ><br><br>
+            <button type="button"  onclick="farmerAddProduct()" >Create Product</button>    
+        </form> 
+            
+        </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <script src = "../app.js"></script> -->
+    <script src="../truffle-contract.js"></script>
+    <script src="farmer.js"></script>
+
+    </body>
+
+</html>

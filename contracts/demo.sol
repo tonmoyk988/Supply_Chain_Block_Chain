@@ -12,29 +12,44 @@ contract demo{
 
     struct Product{
         uint p_id;
-        string name;
+        string product_name;
+        uint p_price;
+        string owener;
+        string mnfctr_date;
+        string expr_date; 
+        string mrp;
     }
 
-    event ProductAdded(uint p_id , string name);
+    // who is the current user of the contract
+    string user; 
+    function set_cuurent_user(string memory _user) public{
+        user = _user;
+    }
+
 
     Product[] public products;
 
-    function addProduct(string memory p_name) public {
+    function addProduct(string memory p_name , uint _p_price) public {
         
         product_count++;
 
         products.push(Product({
             p_id: product_count,
-            name: p_name 
+            product_name: p_name, 
+            p_price: _p_price,
+            owener: "farmer",
+            mnfctr_date: "",
+            expr_date: "",
+            mrp: ""
         }));
-        emit ProductAdded(product_count , p_name);
         
     }
 
- 
-    function returnProducts() public view returns(Product[] memory) {
-        return products;
+    function shiftProduct_toRetailer(uint ind , string memory f_date , string memory s_date , string memory _mrp) public {
+        products[ind].owener = "retailer";
+        products[ind].mnfctr_date = f_date;
+        products[ind].expr_date = s_date; 
+        products[ind].mrp = _mrp;
     }
     
 }
-

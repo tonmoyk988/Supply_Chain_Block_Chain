@@ -10,7 +10,8 @@ App = {
          await App.loadWeb3()
          await App.loadAccount()
          await App.loadContract()
-         await App.render()
+        //  await App.render()
+        await App.render_homePage()
     },
     
     loadWeb3: async() => {
@@ -52,45 +53,66 @@ App = {
         App.Demo = await App.contracts.demo.deployed();
     },
 
-    // render the page
-    render: async() => {
+    render_homePage: async()=>{
+        
+        $('#account').html(App.account);
 
-        var content_holder = document.getElementById("p_list");
+        $("#farmer").click(function(){
+            console.log("farmer clicked !");
+            window.location.href = "./html/farmer.html";
+        });
 
-        try{
+        $("#menufacturer").click(function(){
+            console.log("menufacturer clicked !!");
+            window.location.href = "./html/menufecturer.html";
+        });
 
-            const count =await App.Demo.product_count.call();
-            
-            // console.log(count.toNumber());
-
-            for(var i=0 ; i<count.toNumber() ; i++){
-                const product = await App.Demo.products(i);
-                // console.log(product);
-                const p_id = product[0].toNumber();
-                const p_name = product[1];
-                console.log(p_id);
-
-                var list = document.createElement("ol");
-                list.innerText = p_name;
-                
-                content_holder.appendChild(list);
-
-            }
-        }
-        catch(error){
-            console.log("fucking error");
-        }
-
-        $("#account").html(App.account);
+        $("#retailer").click(function(){
+            console.log("retailer clicked !");
+            window.location.href = "./html/retailer.html";
+        });
 
     },
 
+    // render the page
+    // render: async() => {
+
+    //     var content_holder = document.getElementById("p_list");
+
+    //     try{
+
+    //         const count =await App.Demo.product_count.call();
+            
+    //         // console.log(count.toNumber());
+
+    //         for(var i=0 ; i<count.toNumber() ; i++){
+    //             const product = await App.Demo.products(i);
+    //             // console.log(product);
+    //             const p_id = product[0].toNumber();
+    //             const p_name = product[1];
+    //             console.log(p_id);
+
+    //             var list = document.createElement("ol");
+    //             list.innerText = p_name;
+                
+    //             content_holder.appendChild(list);
+
+    //         }
+    //     }
+    //     catch(error){
+    //         console.log("fucking error");
+    //     }
+
+    //     $("#account").html(App.account);
+
+    // },
+
     // Add a new Product
-    addProduct: async() => {
-        const content = $('#p_name_field').val();
-        console.log(content);
-        await App.Demo.addProduct(content,{from:App.account});
-    }
+    // farmerAddProduct: async() => {
+    //     const content = $('#farmer_p_name').val();
+    //     console.log(content);
+    //     // await App.Demo.addProduct(content,{from:App.account});
+    // }
     
 }
 
